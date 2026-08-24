@@ -11,6 +11,7 @@
             --text: #0f172a;
             --muted: #64748b;
             --primary: #059669;
+            --primary-hover: #047857;
             --border: #e2e8f0;
         }
         body {
@@ -43,6 +44,61 @@
         .instructions ul { margin: 0; padding-left: 1.5rem; }
         .instructions li { margin-bottom: 0.5rem; }
 
+        .generator-card {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .generator-card h3 { margin-top: 0; color: #047857; margin-bottom: 1rem; }
+        .gen-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .gen-inputs input {
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .gen-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+        .gen-btn:hover { background: var(--primary-hover); }
+        .gen-output {
+            margin-top: 1rem;
+            display: none;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+        .gen-output strong { display: block; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .gen-output textarea {
+            width: 100%;
+            font-family: monospace;
+            font-size: 0.85rem;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+            background: #f8fafc;
+            resize: vertical;
+        }
+
         .search-box {
             width: 100%;
             padding: 1rem 1.25rem;
@@ -54,9 +110,7 @@
             outline: none;
             transition: border-color 0.2s;
         }
-        .search-box:focus {
-            border-color: var(--primary);
-        }
+        .search-box:focus { border-color: var(--primary); }
         
         .links-grid {
             display: grid;
@@ -81,12 +135,7 @@
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
-        .link-title {
-            font-weight: 600;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: #1e293b;
-        }
+        .link-title { font-weight: 600; font-size: 0.9rem; line-height: 1.4; color: #1e293b; }
         .link-slug {
             color: var(--primary);
             font-family: monospace;
@@ -98,6 +147,10 @@
             word-break: break-all;
         }
         .hidden { display: none !important; }
+        
+        @media (max-width: 600px) {
+            .gen-inputs { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -114,6 +167,26 @@
             <li>Para ter acesso ao botão iniciar no protocolo do serviço, o ente a ser licenciado deve <strong>autorizar o acesso do seu representante</strong> através da Central de Autorizações.</li>
             <li><strong>Passo a passo:</strong> O ente acessa o sistema logado, entra na "Central de Autorizações" e concede a autorização ao técnico. Depois, o representante acessa o sistema, vai em "Central de Autorizações - Recebidas", acessa a representação do ente e o botão <strong>"Iniciar"</strong> ficará visível.</li>
         </ul>
+    </div>
+
+    <div class="generator-card">
+        <h3>➕ Adicionar Novo Link</h3>
+        <div class="gen-inputs">
+            <input type="text" id="inputTitle" placeholder="Título do Serviço (Ex: Novo Alvará)">
+            <input type="text" id="inputUrl" placeholder="URL Longa (https://...)">
+            <input type="text" id="inputSlug" placeholder="Link Curto Desejado (Ex: /novo-alvara)">
+        </div>
+        <button class="gen-btn" onclick="generateCode()">Gerar Códigos para o GitHub</button>
+        
+        <div id="genOutput" class="gen-output">
+            <p style="margin-top:0; font-size: 0.9rem; color: #475569;">Copie os códigos abaixo e cole nos seus arquivos do GitHub para adicionar este novo link ao sistema.</p>
+            
+            <strong>1. Cole dentro do arquivo vercel.json (antes da última chave ]):</strong>
+            <textarea id="outJson" rows="5" readonly></textarea>
+            
+            <strong>2. Cole dentro do arquivo index.html (junto com os outros cartões):</strong>
+            <textarea id="outHtml" rows="4" readonly></textarea>
+        </div>
     </div>
 
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar por licença, alvará ou tipo (ex: LP, LO, LI, resíduos)...">
@@ -454,6 +527,29 @@
     </div>
 
     <script>
+        // Função do gerador de códigos
+        function generateCode() {
+            const title = document.getElementById('inputTitle').value;
+            const url = document.getElementById('inputUrl').value;
+            let slug = document.getElementById('inputSlug').value;
+            
+            if(!title || !url || !slug) {
+                alert("Por favor, preencha todos os 3 campos!");
+                return;
+            }
+            
+            // Garante que o slug comece com barra
+            if(!slug.startsWith('/')) slug = '/' + slug;
+
+            const jsonSnippet = `    {\n      "source": "${slug}",\n      "destination": "${url}",\n      "permanent": true\n    },`;
+            const htmlSnippet = `        <a href="${slug}" target="_blank" class="link-card">\n            <span class="link-title">${title}</span>\n            <span class="link-slug">${slug}</span>\n        </a>`;
+
+            document.getElementById('outJson').value = jsonSnippet;
+            document.getElementById('outHtml').value = htmlSnippet;
+            document.getElementById('genOutput').style.display = 'block';
+        }
+
+        // Função de busca em tempo real
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.link-card');
