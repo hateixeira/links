@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/insta",
+      "destination": "https://instagram.com/seu-usuario",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://linkedin.com/in/seu-usuario",
+      "permanent": true
+    },
+    {
+      "source": "/site",
+      "destination": "https://seusite.com.br",
+      "permanent": true
+    }
+  ]
+}
