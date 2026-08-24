@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,8 +10,7 @@
             --card: #ffffff;
             --text: #0f172a;
             --muted: #64748b;
-            --primary: #10b981;
-            --primary-hover: #059669;
+            --primary: #059669;
             --border: #e2e8f0;
         }
         body {
@@ -20,13 +18,13 @@
             background: var(--bg);
             color: var(--text);
             padding: 2rem 1rem;
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
         }
         .header {
             text-align: center;
             margin-bottom: 2rem;
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border);
         }
         .header h1 { margin: 0 0 0.5rem 0; color: var(--text); }
@@ -47,60 +45,59 @@
 
         .search-box {
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.25rem;
             border: 2px solid var(--border);
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 2rem;
             box-sizing: border-box;
+            outline: none;
             transition: border-color 0.2s;
         }
         .search-box:focus {
-            outline: none;
             border-color: var(--primary);
         }
         
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1rem;
         }
         .link-card {
             background: var(--card);
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.25rem;
+            border-radius: 10px;
             border: 1px solid var(--border);
             text-decoration: none;
             color: inherit;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            justify-content: space-between;
+            gap: 1rem;
         }
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
         .link-title {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.4;
+            color: #1e293b;
         }
         .link-slug {
             color: var(--primary);
             font-family: monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: #ecfdf5;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
             align-self: flex-start;
+            word-break: break-all;
         }
         .hidden { display: none !important; }
-        
-        @media (max-width: 600px) {
-            .links-grid { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
@@ -119,10 +116,341 @@
         </ul>
     </div>
 
-    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar por licença, alvará ou tipo (ex: LP, LO, LI)...">
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar por licença, alvará ou tipo (ex: LP, LO, LI, resíduos)...">
     
     <div class="links-grid" id="linksGrid">
-        
+        <a href="/li-atividades-industriais" target="_blank" class="link-card">
+            <span class="link-title">LICENÇADE INSTALAÇÃO-ATIVIDADES INDUSTRIAIS</span>
+            <span class="link-slug">/li-atividades-industriais</span>
+        </a>
+        <a href="/li-parcelamento-de-solo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO-PARCELAMENTO DE SOLO</span>
+            <span class="link-slug">/li-parcelamento-de-solo</span>
+        </a>
+        <a href="/li-triagemarmazenamento-de-residuos-classe-ii" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO-TRIAGEM/ARMAZENAMENTO DE RESÍDUOS CLASSE II</span>
+            <span class="link-slug">/li-triagemarmazenamento-de-residuos-classe-ii</span>
+        </a>
+        <a href="/isencao-de-licenciamento-ambiental" target="_blank" class="link-card">
+            <span class="link-title">ISENÇÃO DE LICENCIAMENTO AMBIENTAL</span>
+            <span class="link-slug">/isencao-de-licenciamento-ambiental</span>
+        </a>
+        <a href="/alvara-corte-por-risco-de-queda--a-partir-de-tres-exemplares" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA CORTE DE ÁRVORES NATIVAS POR RISCO DE QUEDA (A PARTIR DE TRÊS EXEMPLARES).</span>
+            <span class="link-slug">/alvara-corte-por-risco-de-queda--a-partir-de-tres-exemplares</span>
+        </a>
+        <a href="/projeto-reposicao-florestal-obrigatorio" target="_blank" class="link-card">
+            <span class="link-title">PROJETO DE REPOSIÇÃO FLORESTAL OBRIGATÓRIO</span>
+            <span class="link-slug">/projeto-reposicao-florestal-obrigatorio</span>
+        </a>
+        <a href="/li-parquearea-de-lazercomplexo-esportivo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA PARQUE/ÁREA DE LAZER/COMPLEXO ESPORTIVO</span>
+            <span class="link-slug">/li-parquearea-de-lazercomplexo-esportivo</span>
+        </a>
+        <a href="/lo-atividades-comerciais-e-em-geral" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES COMERCIAIS E OUTRAS</span>
+            <span class="link-slug">/lo-atividades-comerciais-e-em-geral</span>
+        </a>
+        <a href="/lo-parcelamento-de-solo-inclusive-regularizacao" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA PARCELAMENTO DE SOLO (LOTEAMENTOS E CONDOMÍNIOS)</span>
+            <span class="link-slug">/lo-parcelamento-de-solo-inclusive-regularizacao</span>
+        </a>
+        <a href="/lp-extracao-mineral" target="_blank" class="link-card">
+            <span class="link-title">SOLICITAÇÃO DE LICENÇA PRÉVIA PARA ATIVIDADES DE EXTRAÇÃO MINERAL</span>
+            <span class="link-slug">/lp-extracao-mineral</span>
+        </a>
+        <a href="/lp-atividades-industriais" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES INDUSTRIAIS</span>
+            <span class="link-slug">/lp-atividades-industriais</span>
+        </a>
+        <a href="/licenciamento-legislacao-aplicavel" target="_blank" class="link-card">
+            <span class="link-title">DIVULGAÇÃO DA LEGISLAÇÃO APLICÁVEL PARA FINS DE LICENCIAMENTO AMBIENTAL.</span>
+            <span class="link-slug">/licenciamento-legislacao-aplicavel</span>
+        </a>
+        <a href="/lo-criacao-animal" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE CRIAÇÃO ANIMAL</span>
+            <span class="link-slug">/lo-criacao-animal</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-exotica-com-subbosque" target="_blank" class="link-card">
+            <span class="link-title">SOLICITAÇÃO DE ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO EXÓTICA COM SUB-BOSQUE.</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-exotica-com-subbosque</span>
+        </a>
+        <a href="/li-atividades-de-saude-e-de-analises" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DOS SERVIÇOS DE SAÚDE E DE ANÁLISES LABORATORIAIS</span>
+            <span class="link-slug">/li-atividades-de-saude-e-de-analises</span>
+        </a>
+        <a href="/lp-atividades-de-saude-e-de-analises" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES VOLTADAS AOS SERVIÇOS DE SAÚDE E DE ANÁLISES LABORATORIAIS</span>
+            <span class="link-slug">/lp-atividades-de-saude-e-de-analises</span>
+        </a>
+        <a href="/lo-parquearea-de-lazercomplexo-esportivo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA PARQUE/ÁREA DE LAZER/COMPLEXO ESPORTIVO</span>
+            <span class="link-slug">/lo-parquearea-de-lazercomplexo-esportivo</span>
+        </a>
+        <a href="/licenciamento-recurso-administrativo-2-instancia" target="_blank" class="link-card">
+            <span class="link-title">RECURSO ADMINISTRATIVO, EM 2ª INSTÂNCIA</span>
+            <span class="link-slug">/licenciamento-recurso-administrativo-2-instancia</span>
+        </a>
+        <a href="/licenciamento-alteracao-de-responsabilidade-ambiental" target="_blank" class="link-card">
+            <span class="link-title">ALTERAÇÃO DE RESPONSABILIDADE AMBIENTAL</span>
+            <span class="link-slug">/licenciamento-alteracao-de-responsabilidade-ambiental</span>
+        </a>
+        <a href="/autorizacao-unidade-de-conservacao-uc" target="_blank" class="link-card">
+            <span class="link-title">AUTORIZAÇÃO DO ÓRGÃO GESTOR DA UNIDADE DE CONSERVAÇÃO</span>
+            <span class="link-slug">/autorizacao-unidade-de-conservacao-uc</span>
+        </a>
+        <a href="/lp-atividades-comerciais-e-em-geral" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES COMERCIAIS E OUTRAS ATIVIDADES EM GERAL</span>
+            <span class="link-slug">/lp-atividades-comerciais-e-em-geral</span>
+        </a>
+        <a href="/lp-irrigacaobarragemacudagem" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES DE IRRIGAÇÃO/BARRAGEM/AÇUDAGEM</span>
+            <span class="link-slug">/lp-irrigacaobarragemacudagem</span>
+        </a>
+        <a href="/li-manutencaolavagem-de-veiculos" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DE MANUTENÇÃO/LAVAGEM DE VEÍCULOS</span>
+            <span class="link-slug">/li-manutencaolavagem-de-veiculos</span>
+        </a>
+        <a href="/lo-atividades-industriais" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES INDUSTRIAIS</span>
+            <span class="link-slug">/lo-atividades-industriais</span>
+        </a>
+        <a href="/alvara-poda-de-vegetacao-nativa" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA PODA DE VEGETAÇÃO NATIVA</span>
+            <span class="link-slug">/alvara-poda-de-vegetacao-nativa</span>
+        </a>
+        <a href="/lo-manutencaolavagem-de-veiculos" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA PARA ATIVIDADES DE MANUTENÇÃO/LAVAGEM DE VEÍCULOS</span>
+            <span class="link-slug">/lo-manutencaolavagem-de-veiculos</span>
+        </a>
+        <a href="/lp-parcelamento-de-solo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA PARCELAMENTO DE SOLO (LOTEAMENTOS E CONDOMÍNIOS)</span>
+            <span class="link-slug">/lp-parcelamento-de-solo</span>
+        </a>
+        <a href="/li-campus-universitario" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA CAMPUS UNIVERSITÁRIO</span>
+            <span class="link-slug">/li-campus-universitario</span>
+        </a>
+        <a href="/li-irrigacaobarragemacudagem" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DE IRRIGAÇÃO/BARRAGEM/AÇUDAGEM</span>
+            <span class="link-slug">/li-irrigacaobarragemacudagem</span>
+        </a>
+        <a href="/li-atividades-de-saude-e-de-analises" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DOS SERVIÇOS DE SAÚDE E DE ANÁLISES LABORATORIAIS</span>
+            <span class="link-slug">/li-atividades-de-saude-e-de-analises</span>
+        </a>
+        <a href="/alvara-corte-por-risco-de-queda-ate-dois-exemplares" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA CORTE DE ÁRVORES NATIVAS POR RISCO DE QUEDA (ATÉ DOIS EXEMPLARES)</span>
+            <span class="link-slug">/alvara-corte-por-risco-de-queda-ate-dois-exemplares</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-em-estagio-medio" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO EM ESTÁGIO MÉDIO.</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-em-estagio-medio</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-em-estagio-avancado" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO EM ESTÁGIO AVANÇADO.</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-em-estagio-avancado</span>
+        </a>
+        <a href="/lp-criacao-animal" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES DE CRIAÇÃO ANIMAL</span>
+            <span class="link-slug">/lp-criacao-animal</span>
+        </a>
+        <a href="/licenciamento-termo-de-encerramento" target="_blank" class="link-card">
+            <span class="link-title">TERMO DE ENCERRAMENTO DE LICENCIAMENTO AMBIENTAL, RELACIONADO A ALGUMA ATIVIDADE CUJAS OPERAÇÕES FORAM DESCONTINUADAS.</span>
+            <span class="link-slug">/licenciamento-termo-de-encerramento</span>
+        </a>
+        <a href="/regularizacao-de-lo-atividades-de-saude-e-de-analises" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DOS SERVIÇOS DE SAÚDE E DE ANÁLISES LABORATORIAIS</span>
+            <span class="link-slug">/regularizacao-de-lo-atividades-de-saude-e-de-analises</span>
+        </a>
+        <a href="/lo-atividades-de-saude-e-de-analises" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DOS SERVIÇOS DE SAÚDE E DE ANÁLISES LABORATORIAIS</span>
+            <span class="link-slug">/lo-atividades-de-saude-e-de-analises</span>
+        </a>
+        <a href="/lp-parquearea-de-lazercomplexo-esportivo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA PARQUE/ÁREA DE LAZER/COMPLEXO ESPORTIVO</span>
+            <span class="link-slug">/lp-parquearea-de-lazercomplexo-esportivo</span>
+        </a>
+        <a href="/regularizacao-de-lo-criacao-animal" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE CRIAÇÃO ANIMAL</span>
+            <span class="link-slug">/regularizacao-de-lo-criacao-animal</span>
+        </a>
+        <a href="/regularizacao-de-lo-manutencaolavagem-de-veiculos" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE MANUTENÇÃO/LAVAGEM DE VEÍCULOS</span>
+            <span class="link-slug">/regularizacao-de-lo-manutencaolavagem-de-veiculos</span>
+        </a>
+        <a href="/lo-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil--rscc" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE ATERRO/BENEFICIAMENTO DE RSCC</span>
+            <span class="link-slug">/lo-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil--rscc</span>
+        </a>
+        <a href="/alvara-corte-ate-de-dois-exemplares-exceto-por-risco-de-queda" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA O CORTE DE ÁRVORES NATIVAS ATÉ DOIS EXEMPLARES (EXCETO POR RISCO DE QUEDA).</span>
+            <span class="link-slug">/alvara-corte-ate-de-dois-exemplares-exceto-por-risco-de-queda</span>
+        </a>
+        <a href="/regularizacao-de-lo-atividades-comerciais-e-em-geral" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES COMERCIAIS E OUTRAS</span>
+            <span class="link-slug">/regularizacao-de-lo-atividades-comerciais-e-em-geral</span>
+        </a>
+        <a href="/lo-disposicao-de-efluenteresiduo-solido-classe-ii-em-solo-agricola" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA DISPOSIÇÃO DE EFLUENTE/RESÍDUO SÓLIDO CLASSE II EM SOLO AGRÍCOLA</span>
+            <span class="link-slug">/lo-disposicao-de-efluenteresiduo-solido-classe-ii-em-solo-agricola</span>
+        </a>
+        <a href="/regularizacao-de-lo-campus-universitario" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA CAMPUS UNIVERSITÁRIO</span>
+            <span class="link-slug">/regularizacao-de-lo-campus-universitario</span>
+        </a>
+        <a href="/lp-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES DE ATERRO/BENEFICIAMENTO DE RESÍDUOS DA CONSTRUÇÃO CIVIL (RSCC)</span>
+            <span class="link-slug">/lp-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc</span>
+        </a>
+        <a href="/lp-triagemarmazenamento-de-residuos-classe-ii" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES DE TRIAGEM/ARMAZENAMENTO DE RESÍDUOS CLASSE II</span>
+            <span class="link-slug">/lp-triagemarmazenamento-de-residuos-classe-ii</span>
+        </a>
+        <a href="/regularizacao-de-lo-extracao-mineral" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE EXTRAÇÃO MINERAL</span>
+            <span class="link-slug">/regularizacao-de-lo-extracao-mineral</span>
+        </a>
+        <a href="/comunicacao-de-corte-exploracao-eventual-de-vegetacao-nativa-em-propriedade-rural" target="_blank" class="link-card">
+            <span class="link-title">COMUNICAÇÃO DE CORTE/ EXPLORAÇÃO EVENTUAL DE VEGETAÇÃO NATIVA EM PROPRIEDADE RURAL.</span>
+            <span class="link-slug">/comunicacao-de-corte-exploracao-eventual-de-vegetacao-nativa-em-propriedade-rural</span>
+        </a>
+        <a href="/autorizacao-intervencao-em-area-de-preservacao-permanente-app" target="_blank" class="link-card">
+            <span class="link-title">AUTORIZAÇÃO PARA INTERVENÇÃO EM APP (ÁREA DE PRESERVAÇÃO PERMANENTE)</span>
+            <span class="link-slug">/autorizacao-intervencao-em-area-de-preservacao-permanente-app</span>
+        </a>
+        <a href="/autorizacao-movimentacao-de-solo" target="_blank" class="link-card">
+            <span class="link-title">AUTORIZAÇÃO PARA MOVIMENTAÇÃO DE SOLO, EM OBRAS DE INFRAESTRUTURA E PARA OUTROS FINS</span>
+            <span class="link-slug">/autorizacao-movimentacao-de-solo</span>
+        </a>
+        <a href="/regularizacao-de-lo-irrigacaobarragemacudagem" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE IRRIGAÇÃO/BARRAGEM/AÇUDAGEM</span>
+            <span class="link-slug">/regularizacao-de-lo-irrigacaobarragemacudagem</span>
+        </a>
+        <a href="/li-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DE ATERRO/BENEFICIAMENTO DE RESÍDUOS DA CONSTRUÇÃO CIVIL (RSCC)</span>
+            <span class="link-slug">/li-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc</span>
+        </a>
+        <a href="/li-atividades-comerciais-e-em-geral" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES COMERCIAIS E OUTRAS ATIVIDADES EM GERAL</span>
+            <span class="link-slug">/li-atividades-comerciais-e-em-geral</span>
+        </a>
+        <a href="/regularizacao-de-lo-atividades-industriais" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES INDUSTRIAIS</span>
+            <span class="link-slug">/regularizacao-de-lo-atividades-industriais</span>
+        </a>
+        <a href="/lp-campus-universitario" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA CAMPUS UNIVERSITÁRIO</span>
+            <span class="link-slug">/lp-campus-universitario</span>
+        </a>
+        <a href="/regularizacao-de-lo-parquearea-de-lazercomplexo-esportivo" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA PARQUE/ÁREA DE LAZER/COMPLEXO ESPORTIVO</span>
+            <span class="link-slug">/regularizacao-de-lo-parquearea-de-lazercomplexo-esportivo</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-em-estagio-inicial-ate-25-ha" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO EM ESTÁGIO INICIAL (ATÉ 25 HA)</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-em-estagio-inicial-ate-25-ha</span>
+        </a>
+        <a href="/lp-obras-de-infraestrutura" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA OBRAS DE INFRAESTRUTURA</span>
+            <span class="link-slug">/lp-obras-de-infraestrutura</span>
+        </a>
+        <a href="/regularizacao-de-lo-triagemarmazenamento-de-residuos-classe-ii" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE TRIAGEM/ARMAZENAMENTO DE RESÍDUOS CLASSE II</span>
+            <span class="link-slug">/regularizacao-de-lo-triagemarmazenamento-de-residuos-classe-ii</span>
+        </a>
+        <a href="/li-criacao-animal" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DE CRIAÇÃO ANIMAL</span>
+            <span class="link-slug">/li-criacao-animal</span>
+        </a>
+        <a href="/lo-sistema-de-esgotamento-sanitario-ses-oriundo-de-parcelamentos-de-solo" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA SES ORIUNDO DE PARCELAMENTOS DE SOLO</span>
+            <span class="link-slug">/lo-sistema-de-esgotamento-sanitario-ses-oriundo-de-parcelamentos-de-solo</span>
+        </a>
+        <a href="/lo-campus-universitario" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA CAMPUS UNIVERSITÁRIO</span>
+            <span class="link-slug">/lo-campus-universitario</span>
+        </a>
+        <a href="/alvara-aproveitamento-de-madeira-queda-por-fenomeno-da-natureza" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA O APROVEITAMENTO DE MADEIRA (QUEDA POR FENÔMENO DA NATUREZA).</span>
+            <span class="link-slug">/alvara-aproveitamento-de-madeira-queda-por-fenomeno-da-natureza</span>
+        </a>
+        <a href="/lp-manutencaolavagem-de-veiculos" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA PRÉVIA PARA ATIVIDADES DE MANUTENÇÃO/LAVAGEM DE VEÍCULOS</span>
+            <span class="link-slug">/lp-manutencaolavagem-de-veiculos</span>
+        </a>
+        <a href="/licenciamento-modelo-de-placa-de-identificacao-de-licenciamento" target="_blank" class="link-card">
+            <span class="link-title">MODELO DE PLACA DE IDENTIFICAÇÃO DE LICENCIAMENTO AMBIENTAL</span>
+            <span class="link-slug">/licenciamento-modelo-de-placa-de-identificacao-de-licenciamento</span>
+        </a>
+        <a href="/projeto-recuperacao-de-area-degradada--prad" target="_blank" class="link-card">
+            <span class="link-title">SOLICITAÇÃO PARA APRESENTAÇÃO DE PROJETO DE RECUPERAÇÃO DE ÁREA DEGRADADA.</span>
+            <span class="link-slug">/projeto-recuperacao-de-area-degradada--prad</span>
+        </a>
+        <a href="/autorizacao-geral" target="_blank" class="link-card">
+            <span class="link-title">AUTORIZAÇÃO GERAL PARA CASOS/SITUAÇÕES QUE NÃO SE ENQUADRAM NOS SERVIÇOS DE AUTORIZAÇÃO DISPONÍVEIS.</span>
+            <span class="link-slug">/autorizacao-geral</span>
+        </a>
+        <a href="/li-extracao-mineral" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA ATIVIDADES DE EXTRAÇÃO MINERAL</span>
+            <span class="link-slug">/li-extracao-mineral</span>
+        </a>
+        <a href="/li-obras-de-infraestrutura" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE INSTALAÇÃO PARA OBRAS DE INFRAESTRUTURA</span>
+            <span class="link-slug">/li-obras-de-infraestrutura</span>
+        </a>
+        <a href="/lo-extracao-mineral" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATIVIDADES DE EXTRAÇÃO MINERAL</span>
+            <span class="link-slug">/lo-extracao-mineral</span>
+        </a>
+        <a href="/prestacao-de-contas--licenciamento-ambiental" target="_blank" class="link-card">
+            <span class="link-title">PROTOCOLO DE DOCUMENTAÇÃO DE PRESTAÇÃO DE CONTAS</span>
+            <span class="link-slug">/prestacao-de-contas--licenciamento-ambiental</span>
+        </a>
+        <a href="/alvara-transplante-de-vegetacao-nativa" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA TRANSPLANTE DE VEGETAÇÃO NATIVA.</span>
+            <span class="link-slug">/alvara-transplante-de-vegetacao-nativa</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-comprovadamente-plantada" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO COMPROVADAMENTE PLANTADA.</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-comprovadamente-plantada</span>
+        </a>
+        <a href="/autorizacao-detonacao" target="_blank" class="link-card">
+            <span class="link-title">AUTORIZAÇÃO PARA DETONAÇÃO, EM OBRAS DE INFRAESTRUTURA E PARA OUTROS FINS</span>
+            <span class="link-slug">/autorizacao-detonacao</span>
+        </a>
+        <a href="/regularizacao-de-lo-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc" target="_blank" class="link-card">
+            <span class="link-title">REGULARIZAÇÃO DE LICENÇA DE OPERAÇÃO PARA ATERRO/BENEFICIAMENTO DE RSCC</span>
+            <span class="link-slug">/regularizacao-de-lo-aterrobeneficiamento-de-residuos-solidos-da-construcao-civil-rscc</span>
+        </a>
+        <a href="/declaracao-ambiental" target="_blank" class="link-card">
+            <span class="link-title">DECLARAÇÃO AMBIENTAL PARA CASOS/SITUAÇÕES DIVERSAS</span>
+            <span class="link-slug">/declaracao-ambiental</span>
+        </a>
+        <a href="/licenciamento-recurso-administrativo-1-instancia" target="_blank" class="link-card">
+            <span class="link-title">RECURSO ADMINISTRATIVO, EM 1ª INSTÂNCIA, CONFORME</span>
+            <span class="link-slug">/licenciamento-recurso-administrativo-1-instancia</span>
+        </a>
+        <a href="/alvara-supressao-de-vegetacao-em-estagio-inicial-acima-25-ha" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA A SUPRESSÃO DE VEGETAÇÃO EM ESTÁGIO INICIAL (ACIMA 25 HA).</span>
+            <span class="link-slug">/alvara-supressao-de-vegetacao-em-estagio-inicial-acima-25-ha</span>
+        </a>
+        <a href="/lo-irrigacaobarragemacudagem" target="_blank" class="link-card">
+            <span class="link-title">LICENÇA DE OPERAÇÃO E DE RENOVAÇÃO DE LICENÇA DE OPERAÇÃO (LO) PARA ATIVIDADES DE IRRIGAÇÃO/BARRAGEM/AÇUDAGEM</span>
+            <span class="link-slug">/lo-irrigacaobarragemacudagem</span>
+        </a>
+        <a href="/alvara-corte-a-partir-de-tres-exemplares-exceto-risco-de-queda" target="_blank" class="link-card">
+            <span class="link-title">ALVARÁ DE SERVIÇOS FLORESTAIS PARA CORTE DE ÁRVORES NATIVAS A PARTIR DE TRÊS EXEMPLARES (EXCETO POR RISCO DE QUEDA).</span>
+            <span class="link-slug">/alvara-corte-a-partir-de-tres-exemplares-exceto-risco-de-queda</span>
+        </a>
+        <a href="/licenciamento-licencas-ambientais-emitidas" target="_blank" class="link-card">
+            <span class="link-title">LISTA DE DOCUMENTOS DE LICENCIAMENTO AMBIENTAL EMITIDOS PELA SECRETARIA MUNICIPAL DE MEIO AMBIENTE - SMMAM.</span>
+            <span class="link-slug">/licenciamento-licencas-ambientais-emitidas</span>
+        </a>
+        <a href="/manual-do-usuario-governo-digital-para-licenca-ambiental" target="_blank" class="link-card">
+            <span class="link-title">TUTORIAL DE UTILIZAÇÃO DO GOVERNO DIGITAL PARA SERVIÇOS DE LICENCIAMENTO AMBIENTAL.</span>
+            <span class="link-slug">/manual-do-usuario-governo-digital-para-licenca-ambiental</span>
+        </a>
     </div>
 
     <script>
